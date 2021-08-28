@@ -16,7 +16,7 @@ function sumAll([a, b]) {
 		for (let i = 0; i <= b; i++) {
 			total++;
 		}
-		return total;
+		return total + a + b;
 	} else {
 		return "Nah bruh";
 	}
