@@ -4,22 +4,21 @@
 
 // For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
 
-// sumAll([1, 4]) should return a number.
-// sumAll([1, 4]) should return 10
-// sumAll([4, 1]) should return 10
-// sumAll([5, 10]) should return 45
-// sumAll([10, 5]) should return 45
+function sumAll(arr) {
+	// Sort the array into numeric order
+	const sortedArr = arr.sort((a, b) => a - b);
 
-function sumAll([a, b]) {
-	if (a < b) {
-		let total = 0;
-		for (let i = 0; i <= b; i++) {
-			total++;
-		}
-		return total + a + b;
-	} else {
-		return "Nah bruh";
+	//If same number just return total
+	if (sortedArr[0] === sortedArr[1]) {
+		return sortedArr[0] + sortedArr[1];
 	}
+
+	//If not same, adds range of numbers between a and b to sum incl a + b
+	let sum = 0;
+	for (let i = sortedArr[0]; i <= sortedArr[1]; i++) {
+		sum += i;
+	}
+	return sum;
 }
 
 module.exports = sumAll;
